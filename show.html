@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Meal Details</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    
+    
+  </head>
+  <body style="background: linear-gradient(to right, #ff6600 13%, #ff5050 100%);">
+
+    
+<nav class="bg-white dark:bg-gray-900 fixed w-full z-20 top-0 left-0 border-b border-gray-200 dark:border-gray-600" >
+  <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
+  <a href="https://flowbite.com/" class="flex items-center">
+      <img src="food-logo-icon-design-vector-260nw-1690192627 (1).jpg" style="height: 60px; width: 70px;" class="h-8 mr-3" alt="Flowbite Logo">
+      <span class="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">Flowbite</span>
+  </a>
+  <div class="flex md:order-2">
+      <button type="button" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 text-center mr-3 md:mr-0 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"  ></button>
+      <button data-collapse-toggle="navbar-sticky" type="button" class="inline-flex items-center p-2 text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600" aria-controls="navbar-sticky" aria-expanded="false">
+        <span class="sr-only">Open main menu</span>
+        <svg class="w-6 h-6" aria-hidden="true" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 15a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z" clip-rule="evenodd"></path></svg>
+      </button>
+  </div>
+  <div class="items-center justify-between hidden w-full md:flex md:w-auto md:order-1" id="navbar-sticky">
+    <ul class="flex flex-col p-4 md:p-0 mt-4 font-medium border border-gray-100 rounded-lg bg-gray-50 md:flex-row md:space-x-8 md:mt-0 md:border-0 md:bg-white dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700"  >
+      <li>
+        <a  class="block py-2 pl-3 pr-4 text-white bg-blue-700 rounded md:bg-transparent md:text-blue-700 md:p-0 md:dark:text-blue-500" aria-current="page" onMouseOver="this.style.backgroundColor='grey'"  onMouseOut="this.style.backgroundColor='#343a40'" aria-current="page" href="index.html" style="border: 1px solid grey; font-size: 2rem; padding:0px 20px;">Home</a>
+      </li>
+      
+    </ul>
+  </div>
+  </div>
+</nav>
+
+
+    <!-- MEAL DETAILS -->
+    <div id="meal-details" style="margin-top: 10vh;"></div>
+
+    <script>
+      // Retrieve the stored information from local storage
+      const selectedMeal = JSON.parse(localStorage.getItem("selectedMeal"));
+
+      // Display the meal details on the page
+      const mealDetailsDiv = document.getElementById("meal-details");
+      const image = selectedMeal.strMealThumb;
+      const title = selectedMeal.strMeal;
+      const instructions = selectedMeal.strInstructions;
+      const area = selectedMeal.strArea;
+      const id = selectedMeal.idMeal;
+      const youtube = selectedMeal.strYoutube;
+      const ingridient1 = selectedMeal.strIngredient1;
+      const ingridient2 = selectedMeal.strIngredient2;
+      const ingridient3 = selectedMeal.strIngredient3;
+      const ingridient4 = selectedMeal.strIngredient4;
+      const ingridient5 = selectedMeal.strIngredient5;
+
+      const html = `
+      <section class="text-gray-600 body-font" style="color: white; margin-top: 10vh">
+        <div class="container px-5 py-24 mx-auto flex flex-col" style="">
+          <div class="lg:w-4/6 mx-auto">
+            <div class="rounded-lg h-64 overflow-hidden">
+              <center><img alt="content" class="object-contain" style=" height:300px ; width : 500px" src="${image}"><center>
+            </div>
+            <div class="flex flex-col sm:flex-row mt-10">
+              <div class="sm:w-1/3 text-center sm:pr-8 sm:py-8">
+                <div class="w-20 h-20 rounded-full inline-flex items-center justify-center bg-gray-200 text-gray-400">
+                  <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-10 h-10" viewBox="0 0 24 24">
+                    <path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"></path>
+                    <circle cx="12" cy="7" r="4"></circle>
+                  </svg>
+                </div>
+                <div class="flex flex-col items-center text-center justify-center">
+                  <h2 class="font-medium title-font mt-4 text-gray-900 text-lg">${title}</h2>
+                  <div class="w-12 h-1 bg-indigo-500 rounded mt-2 mb-4"></div>
+                  <p class="text-base"><b>Ingridients</b> - ${ingridient1} , ${ingridient2} , ${ingridient3} , ${ingridient4} , ${ingridient5}</p>
+                </div>
+              </div>
+              <div class="sm:w-2/3 sm:pl-8 sm:py-8 sm:border-l border-gray-200 sm:border-t-0 border-t mt-4 pt-4 sm:mt-0 text-center sm:text-left">
+                <p class="leading-relaxed text-lg mb-4"><p style="font-weight: bold;">Instructions</p>
+              ${instructions}
+              </p>
+                <a class="text-indigo-500 inline-flex items-center">Learn More
+                  <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-4 h-4 ml-2" viewBox="0 0 24 24">
+                    <path d="M5 12h14M12 5l7 7-7 7"></path>
+                  </svg>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div>
+          <center style="font-weight: bold;font-size: 2rem;">Watch Tutorial</center>
+          <br>
+          <center><a href="${youtube}"><button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+  Click To Watch Tutorial
+</button></a></center>
+          <center><iframe width="600" height="400" src="https://www.youtube.com/embed/watch?v=u54aQPzwbWc">
+</iframe></center>
+        </div>
+      </section>
+      `;
+
+      mealDetailsDiv.innerHTML = html;
+
+      // Clear the stored information from local storage
+    //   localStorage.removeItem("selectedMeal");
+    </script>
+    </body>
+    </html>
