@@ -1,2 +1,8 @@
 # Meals-App
-Meals app , it is a website createed with HTML CSS and JS with API. it contains data of various meals that is fetcched using mealdb API . it contains functionality to add our favourites dish to favourites , i've done it using local storage . To remove the favourites from the favourites bar. Search bar to search the webite and a desciption page to get the data of the meals.
+- A JavaScript-based web application that leverages data from a Meals API.
+- Utilized the Meals API to fetch food data, including details such as name, description,ingredients, and images
+- It provides users with an interactive platform to search for various foods, add them to their favorites, update their Favorites, and remove items from their favorites.
+- Implemented using JavaScript, HTML, and CSS to create an interactive and responsive web
+application.
+
+
